@@ -43,13 +43,12 @@ public class MainActivity extends AppCompatActivity {
         final SearchableSpinner fromSpinner = findViewById(R.id.fromSpinner);
         final SearchableSpinner toSpinner = findViewById(R.id.toSpinner);
         final List<String> coins = new ArrayList<String>();
-        final ArrayAdapter<String> fromSpinnerData = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, coins);
-        final ArrayAdapter<String> toSpinnerData = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, coins);
-        fromSpinner.setAdapter(fromSpinnerData);
+        final ArrayAdapter<String> adapterData = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, coins);
+        fromSpinner.setAdapter(adapterData);
         fromSpinner.setTitle("From");
         fromSpinner.setPositiveButton("OK");
 
-        toSpinner.setAdapter(fromSpinnerData);
+        toSpinner.setAdapter(adapterData);
         toSpinner.setTitle("To");
         toSpinner.setPositiveButton("OK");
 
