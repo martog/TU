@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CryptoCompare</string>
+    <string name="api_base_url">https://min-api.cryptocompare.com</string>
+    <string name="all_coins_url">https://min-api.cryptocompare.com/data/all/coinlist</string>
+</resources>
