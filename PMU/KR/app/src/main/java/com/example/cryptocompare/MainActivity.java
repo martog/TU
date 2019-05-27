@@ -35,17 +35,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fromSpinnerInit();
+        spinnersInit();
 
     }
 
-    public void fromSpinnerInit() {
+    public void spinnersInit() {
         final SearchableSpinner fromSpinner = findViewById(R.id.fromSpinner);
+        final SearchableSpinner toSpinner = findViewById(R.id.toSpinner);
         final List<String> coins = new ArrayList<String>();
-        final ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, coins);
-        fromSpinner.setAdapter(dataAdapter);
+        final ArrayAdapter<String> fromSpinnerData = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, coins);
+        final ArrayAdapter<String> toSpinnerData = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, coins);
+        fromSpinner.setAdapter(fromSpinnerData);
         fromSpinner.setTitle("From");
         fromSpinner.setPositiveButton("OK");
+
+        toSpinner.setAdapter(fromSpinnerData);
+        toSpinner.setTitle("To");
+        toSpinner.setPositiveButton("OK");
+
         JsonObjectRequest allCoins = new JsonObjectRequest(Request.Method.GET, getResources().getString(R.string.all_coins_url), null, new Response.Listener<JSONObject>() {
 
             @Override
@@ -55,14 +62,8 @@ public class MainActivity extends AppCompatActivity {
                     Iterator<String> iter = data.keys();
                     while (iter.hasNext()) {
                         String key = iter.next();
-                        try {
-                            JSONObject value = data.getJSONObject(key);
-                            coins.add(value.get("CoinName").toString() + " (" + value.get("Name").toString() + ")");
-                        } catch (JSONException e) {
-                            // Something went wrong!
-                        }
+                        coins.add(key);
                     }
-
                 } catch (JSONException e) {
                     Log.i("Response", e.toString());
                 }

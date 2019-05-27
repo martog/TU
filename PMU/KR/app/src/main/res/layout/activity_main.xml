@@ -16,8 +16,9 @@
         android:layout_height="wrap_content">
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/fromSpinner"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         app:hintText="From"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
+            android:maxLines="1"
             android:hint="Value"/>
     </LinearLayout>
     <ImageButton
@@ -47,8 +49,9 @@
         android:layout_height="wrap_content">
         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
             android:id="@+id/toSpinner"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             app:hintText="To"
             android:spinnerMode="dropdown"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -58,6 +61,7 @@
             android:layout_marginStart="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLines="1"
             android:hint="Result"/>
     </LinearLayout>
 
