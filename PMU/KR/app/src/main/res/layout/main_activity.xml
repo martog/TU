@@ -11,34 +11,36 @@
         android:orientation="horizontal">
         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
             android:id="@+id/spinner1"
-            android:layout_marginStart="8dp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:hintText="From"
-            android:backgroundTint="@color/colorPrimary"
             android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_weight="2"
+            android:backgroundTint="@color/colorPrimary"
+            android:baselineAligned="false"
             android:spinnerMode="dropdown"
-            />
+            app:hintText="From" />
+
         <ImageButton
             android:id="@+id/btnSwitch"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:layout_weight="1"
-            android:layout_gravity="center"
-            android:tint="@android:color/white"
             android:backgroundTint="@color/colorPrimary"
-            android:src="@drawable/ic_switch"/>
+            android:src="@drawable/ic_switch"
+            android:tint="@android:color/white" />
+
         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
             android:id="@+id/spinner2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
+            android:layout_gravity="center_vertical"
             android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            app:hintText="To"
+            android:layout_weight="2"
+            android:backgroundTint="@color/colorPrimary"
             android:spinnerMode="dropdown"
-            android:layout_gravity="center_vertical" />
+            app:hintText="To" />
     </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"

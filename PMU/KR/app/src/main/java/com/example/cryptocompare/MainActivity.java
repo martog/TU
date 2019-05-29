@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private SearchableSpinner fromSpinner;
     private SearchableSpinner toSpinner;
     private ImageView btnSwitch;
-    private  ArrayAdapter<String> adapterData;
+    private ArrayAdapter<String> adapterData;
+    private View iconAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,20 @@ public class MainActivity extends AppCompatActivity {
         fromSpinner = findViewById(R.id.spinner1);
         toSpinner = findViewById(R.id.spinner2);
         btnSwitch = findViewById(R.id.btnSwitch);
+        iconAction = findViewById(R.id.iconAction);
         btnSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (adapterData != null){
+                if (adapterData != null && fromSpinner.getSelectedItem() != null
+                        && toSpinner.getSelectedItem() != null) {
                     switchSpinners();
                 }
+            }
+        });
+        iconAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("ItemIcon", "clicked!");
             }
         });
         spinnersInit();
@@ -92,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         Volley.newRequestQueue(this).add(allCoins);
     }
 
-    private void switchSpinners(){
+    private void switchSpinners() {
         String from = (String) fromSpinner.getSelectedItem();
         String to = (String) toSpinner.getSelectedItem();
         fromSpinner.setSelection(adapterData.getPosition(to));
